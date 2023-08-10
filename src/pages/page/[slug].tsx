@@ -6,8 +6,18 @@ const Page = () => {
   const [pageId, setPageId] = useState(0);
   useEffect(() => {
     if (router.isReady) {
-      setPageId(parseInt(router.query.slug, 10));
+      const value = router.query.slug;
+      if (typeof value === 'string') {
+        setPageId(parseInt(value, 10));
+      }
     }
-  }, []);
-  return <h2>This is Page {pageId}</h2>;
+  }, [router]);
+  return (
+  <>
+  <h2>This is Page {pageId}</h2>
+  <p> simple page navigation</p>
+  </>
+    );
 };
+
+export default Page;
