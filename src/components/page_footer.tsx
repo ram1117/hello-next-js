@@ -1,5 +1,5 @@
 const PageFooter = ()=>(
-  <div className="w-full text-center fixed bottom-0">
+  <div className="w-full text-center absolute bottom-0">
     <p>All rights reserved</p>
   </div>);
   
