@@ -16,6 +16,6 @@ jobs:
           node-version: "18.x"
       - name: Setup ESLint
         run: |
-          npm install eslint-config-airbnb eslint-config-airbnb-typescript  @typescript-eslint/eslint-plugin  @typescript-eslint/parser  --save-dev
+          npm install eslint-config-airbnb-typescript @typescript-eslint/eslint-plugin  @typescript-eslint/parser --save-dev
       - name: ESLint Report
         run: npx eslint . --ext .ts,.tsx
