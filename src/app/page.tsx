@@ -17,24 +17,24 @@ export default function Home() {
         <Link
           className="text-red-400"
           href={{
-            pathname: `/page/1`,
-            query: `1`,
+            pathname: '/page/1',
+            query: '1',
           }}
         >
           Page 1
         </Link>
         <Link
           href={{
-            pathname: `/page/2`,
-            query: `2`,
+            pathname: '/page/2',
+            query: '2',
           }}
         >
           Page 2
         </Link>
         <Link
           href={{
-            pathname: `/page/3`,
-            query: `3`,
+            pathname: '/page/3',
+            query: '3',
           }}
         >
           Page 3

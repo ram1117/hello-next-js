@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-const Page = () => {
+function Page() {
   const router = useRouter();
   const [pageId, setPageId] = useState(0);
   useEffect(() => {
@@ -13,11 +13,14 @@ const Page = () => {
     }
   }, [router]);
   return (
-  <>
-  <h2>This is Page {pageId}</h2>
-  <p> simple page navigation</p>
-  </>
-    );
-};
+    <>
+      <h2>
+        This is Page
+        {pageId}
+      </h2>
+      <p> simple page navigation</p>
+    </>
+  );
+}
 
 export default Page;
