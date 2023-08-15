@@ -1,2 +1,4 @@
-const Loading = () => <p>Loading....</p>
+function Loading() {
+  return <p>Loading....</p>;
+}
 export default Loading;
