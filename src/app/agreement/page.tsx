@@ -2,7 +2,7 @@ import React from 'react';
 
 function Page() {
   return (
-    <div className="w-1/2 h1/2 my-16">
+    <div className="w-full md:w-1/2 h-4/5 md:h1/2 my-16">
       <video
         width="100%"
         height="100%"
