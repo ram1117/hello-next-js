@@ -1,4 +1,4 @@
-import { Suspense } from 'react';
+import React, { Suspense } from 'react';
 import Loading from './loading';
 
 function AgreementLayout({ children }: { children: React.ReactNode }) {

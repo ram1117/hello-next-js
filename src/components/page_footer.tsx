@@ -1,3 +1,5 @@
+import React from 'react';
+
 function PageFooter() {
   return (
     <div className="w-full text-center absolute bottom-0">

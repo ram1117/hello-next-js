@@ -1,3 +1,5 @@
+import React from 'react';
+
 function PageHeader() {
   return (
     <div className="w-full text-left fixed top-0 p-6">

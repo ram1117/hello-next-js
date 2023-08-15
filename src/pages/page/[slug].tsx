@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from 'react';
+
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
 
 function Page() {
   const router = useRouter();
