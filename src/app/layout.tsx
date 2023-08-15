@@ -2,7 +2,7 @@ import React from 'react';
 
 import './globals.css';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+// import { Inter } from 'next/font/google';
 import PageHeader from '@/components/page_header';
 import PageFooter from '@/components/page_footer';
 
