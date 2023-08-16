@@ -1,21 +1,27 @@
+import { text } from 'node:stream/consumers';
 import React from 'react';
 
 function Page() {
+  const data = [
+    { name: 'healthcare' },
+    { name: 'agriculture' },
+    { name: 'tech' },
+    { name: 'manufacturing' },
+    { name: 'tourism' },
+  ];
   return (
-    <div className="w-full md:w-1/2 h-4/5 md:h1/2 my-16">
-      <video
-        width="100%"
-        height="100%"
-        controls
-        autoPlay
-        muted
-      >
-        <source
-          src="https://drive.google.com/uc?id=1IxVST9uxX-AbfB5iORON9k3sAGlb6IpA"
-          type="video/mp4"
-        />
-        <track src="" kind="subtitles" srcLang="en" label="English" />
-      </video>
+    <div>
+      {data.map((item) => {
+        let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        let color = `#${randomColor}`;
+        return (
+          <>
+            <div style={{ background: `${color}`,height:'10px' }}></div>
+            {/* <span className="text-red-500">{item.name}</span> */}
+            <h2 style={{ color: `${color}` }}>{item.name}</h2>
+          </>
+        );
+      })}
     </div>
   );
 }

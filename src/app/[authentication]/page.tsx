@@ -5,9 +5,21 @@ function AuthPage({
 }: {
   params: { authentication: 'signup' | 'signin' };
 }) {
-  if (params.authentication === 'signin') {
-    return <h3 className="text-2xl">Please Sign in</h3>;
-  }
-  return <h3 className="text-2xl">Join Now</h3>;
+  const arr = ['bg-red-500', 'bg-green-500', 'bg-blue-500', 'bg-yellow-500'];
+  const data = [
+    { name: 'healthcare' },
+    { name: 'agriculture' },
+    { name: 'tech' },
+    { name: 'manufacturing' },
+    { name: 'tourism' },
+  ];
+  return (
+    <div>
+      {data.map((item) => {
+        const randomColor = arr[Math.floor(Math.random() * arr.length)];
+        return <div className={`${randomColor} w-full h-6`}>{item.name}</div>;
+      })}
+    </div>
+  );
 }
 export default AuthPage;
