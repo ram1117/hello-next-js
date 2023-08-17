@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="relative border-2 border-red-500 h-screen flex flex-col justify-center items-center">
+      <body className="relative border-2 border-red-500 h-screen flex flex-col justify-center items-center bg-mobile-splash bg-cover">
         <PageHeader />
         {children}
         <PageFooter />
