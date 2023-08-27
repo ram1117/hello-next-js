@@ -1,0 +1,8 @@
+.scroll-container{
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-item{
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}

@@ -5,9 +5,11 @@ import React, { useEffect, useRef, useState } from 'react';
 function Page() {
   const [index, setIndex] = useState(1);
   const listRef = useRef<HTMLUListElement>(null);
+  const [containerWidth, setContainerWidth] = useState(0);
 
   useEffect(() => {
     scrollToIndex(index);
+    setContainerWidth(listRef.current?.clientWidth);
   }, [index]);
 
   const handlePrev = () => {
@@ -20,30 +22,33 @@ function Page() {
 
   function scrollToIndex(index: number) {
     const listNode = listRef.current;
+    listNode.scrollBy(0, listNode.clientWidth);
     // This line assumes a particular DOM structure:\
     if (listNode) {
-      const imgNode:HTMLLIElement[] = listNode.querySelectorAll('li')[index];
+      const imgNode: HTMLLIElement = listNode.querySelectorAll('li')[index];
       imgNode.scrollIntoView({
         behavior: 'smooth',
         block: 'nearest',
         inline: 'center',
       });
-      imgNode.classList.add('object-expand');
     }
   }
 
   return (
     <div className="border-2 ">
       <div>
-        <ul className="flex w-[500px] overflow-x-scroll  gap-6 p-6" ref={listRef}>
-          <li className="relative" style={{minWidth:'90%'}}>
-            <img src="/buttongreen.jpg" alt="image 1" />
+        <ul
+          className="flex w-[500px] overflow-x-scroll scroll-container"
+          ref={listRef}
+        >
+          <li className="relative scroll-item" style={{ minWidth: '100%' }}>
+            <img src="/buttongreen.jpg" alt="image 1" draggable={false} />
           </li>
-          <li className="relative" style={{minWidth:'90%'}}>
-            <img src="/dreams.jpg" alt="image 1" />
+          <li className="relative scroll-item" style={{ minWidth: '100%' }}>
+            <img src="/dreams.jpg" alt="image 1" draggable={false} />
           </li>
-          <li className="relative" style={{minWidth:'90%'}}>
-            <img src="/buttongreen.jpg" alt="image 1" />
+          <li className="relative scroll-item" style={{ minWidth: '100%' }}>
+            <img src="/buttongreen.jpg" alt="image 1" draggable={false} />
           </li>
         </ul>
       </div>
