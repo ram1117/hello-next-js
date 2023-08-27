@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
+import useScrollPosition from './useScrollPosition';
 import styles from './style.module.css';
 import LeftArrow from '/public/arrow1.svg';
 import RightArrow from '/public/arrow2.svg';
@@ -12,24 +13,34 @@ const Carousel = ({
   className: string;
 }) => {
   const [index, setIndex] = useState(0);
-  const listRef = useRef<HTMLUListElement>(null);
+  const listRef = useRef<HTMLElement>(null);
   const isAtStart = index === 0;
   const isAtEnd = index === children.length - 1;
 
+  const options = {
+    root: listRef.current,
+    rootMargin: '0px',
+    threshold: 0.6,
+  };
+
   useEffect(() => {
     scrollToIndex(index);
-  }, [index]);
+  }, []);
+
+  const setIndexes = (index: number) => {
+    setIndex(index);
+    // setViewPortItemIndex(index);
+  };
 
   const handlePrev = () => {
-    if (index > 0) setIndex((prevIndex) => (prevIndex -= 1));
+    if (index > 0) scrollToIndex(index - 1);
   };
 
   const handleNext = () => {
-    if (index < children.length - 1) setIndex((prevIndex) => (prevIndex += 1));
+    if (index < children.length - 1) scrollToIndex(index + 1);
   };
 
   const handleDotClick = (index: number) => {
-    setIndex(index);
     scrollToIndex(index);
   };
 
@@ -55,12 +66,16 @@ const Carousel = ({
         ref={listRef}
       >
         {children.map((child, index) => {
+          const itemRef = useRef(null);
+          useScrollPosition(itemRef, setIndexes, options);
           return (
             <li
               className={`relative scroll-item ${styles['scroll-item']} min-w-[90%] md:min-w-[80%]`}
               // style={{ minWidth: '80%' }}
               draggable={false}
               key={index + 1}
+              data-index={index}
+              ref={itemRef}
             >
               {child}
             </li>
@@ -72,7 +87,7 @@ const Carousel = ({
           <button
             key={itemIndex + 1}
             className={`border-2 border-black p-2 rounded-full ${
-              itemIndex === index ? `bg-blue-500` : `bg-white-500`
+              index === itemIndex ? `bg-blue-500` : `bg-white-500`
             }`}
             onClick={() => {
               handleDotClick(itemIndex);
