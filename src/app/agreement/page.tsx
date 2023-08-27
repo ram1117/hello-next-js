@@ -1,4 +1,3 @@
-import { text } from 'node:stream/consumers';
 import React from 'react';
 
 function Page() {
@@ -12,11 +11,11 @@ function Page() {
   return (
     <div>
       {data.map((item) => {
-        let randomColor = Math.floor(Math.random() * 16777215).toString(16);
-        let color = `#${randomColor}`;
+        const randomColor = Math.floor(Math.random() * 16777215).toString(16);
+        const color = `#${randomColor}`;
         return (
           <>
-            <div style={{ background: `${color}`,height:'10px' }}></div>
+            <div style={{ background: `${color}`, height: '10px' }} />
             {/* <span className="text-red-500">{item.name}</span> */}
             <h2 style={{ color: `${color}` }}>{item.name}</h2>
           </>

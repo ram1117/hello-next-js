@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 
-const Stepper = ({ index, title }: { index: number; title: string }) => {
+function Stepper({ index, title }: { index: number; title: string }) {
   const divRef = useRef(null);
 
   return (
@@ -14,6 +14,6 @@ const Stepper = ({ index, title }: { index: number; title: string }) => {
       <p>{title}</p>
     </div>
   );
-};
+}
 
 export default Stepper;

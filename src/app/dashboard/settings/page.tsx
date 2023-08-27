@@ -1,16 +1,16 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
+import styles from './style.module.css'
 
 function Page() {
   const [index, setIndex] = useState(1);
   const listRef = useRef<HTMLUListElement>(null);
-  const [containerWidth, setContainerWidth] = useState(0);
+  
 
   useEffect(() => {
     scrollToIndex(index);
-    const width = listRef.current?.clientWidth as number;
-    setContainerWidth(width);
+    
   }, [index]);
 
   const handlePrev = () => {
@@ -39,16 +39,16 @@ function Page() {
     <div className="border-2 ">
       <div>
         <ul
-          className="flex w-[500px] overflow-x-scroll scroll-container"
+          className={`flex w-[500px] overflow-x-scroll ${styles['scroll-container']}`}
           ref={listRef}
         >
-          <li className="relative scroll-item" style={{ minWidth: '100%' }}>
+          <li className={`relative scroll-item ${styles['scroll-item']}`} style={{ minWidth: '100%' }}>
             <img src="/buttongreen.jpg" alt="image 1" draggable={false} />
           </li>
-          <li className="relative scroll-item" style={{ minWidth: '100%' }}>
+          <li className={`relative scroll-item ${styles['scroll-item']}`} style={{ minWidth: '100%' }}>
             <img src="/dreams.jpg" alt="image 1" draggable={false} />
           </li>
-          <li className="relative scroll-item" style={{ minWidth: '100%' }}>
+          <li className={`relative scroll-item ${styles['scroll-item']}`} style={{ minWidth: '100%' }}>
             <img src="/buttongreen.jpg" alt="image 1" draggable={false} />
           </li>
         </ul>
