@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import React from 'react';
 import { useState } from 'react';
@@ -7,7 +7,7 @@ import Link from 'next/link';
 const minusIcon = '-';
 const plusIcon = '+';
 
-function Accordion({ title, content }) {
+function Accordion({ title, content }: { title: string; content: string }) {
   const [expanded, setExpanded] = useState(false);
   const toggleExpanded = () => setExpanded((current) => !current);
 
