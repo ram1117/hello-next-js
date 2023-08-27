@@ -24,7 +24,7 @@ const Carousel = ({
   };
 
   useEffect(() => {
-    scrollToIndex(index);
+    if (listRef.current) listRef.current.scrollTo({ left: 0 });
   }, []);
 
   const setIndexes = (index: number) => {
