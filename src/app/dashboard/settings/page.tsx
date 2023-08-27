@@ -9,7 +9,8 @@ function Page() {
 
   useEffect(() => {
     scrollToIndex(index);
-    setContainerWidth(listRef.current?.clientWidth);
+    const width = listRef.current?.clientWidth as number;
+    setContainerWidth(width);
   }, [index]);
 
   const handlePrev = () => {
@@ -22,7 +23,7 @@ function Page() {
 
   function scrollToIndex(index: number) {
     const listNode = listRef.current;
-    listNode.scrollBy(0, listNode.clientWidth);
+    listNode?.scrollBy(0, listNode.clientWidth);
     // This line assumes a particular DOM structure:\
     if (listNode) {
       const imgNode: HTMLLIElement = listNode.querySelectorAll('li')[index];
