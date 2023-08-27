@@ -9,7 +9,7 @@
 }
 
 .scroll-item {
-  width: 100%;
+  min-width: 90%;
   height: 100%;
   scroll-snap-align: center;
   scroll-snap-stop: always;

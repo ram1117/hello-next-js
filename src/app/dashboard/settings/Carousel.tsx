@@ -20,7 +20,7 @@ const Carousel = ({
   const options = {
     root: listRef.current,
     rootMargin: '0px',
-    threshold: 0.6,
+    threshold: 0.7,
   };
 
   useEffect(() => {
@@ -70,8 +70,7 @@ const Carousel = ({
           useScrollPosition(itemRef, setIndexes, options);
           return (
             <li
-              className={`relative scroll-item ${styles['scroll-item']} min-w-[90%] md:min-w-[80%]`}
-              // style={{ minWidth: '80%' }}
+              className={`relative scroll-item ${styles['scroll-item']}`}
               draggable={false}
               key={index + 1}
               data-index={index}
