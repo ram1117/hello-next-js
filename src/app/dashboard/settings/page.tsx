@@ -1,74 +1,14 @@
 'use client';
-
-import React, { useEffect, useRef, useState } from 'react';
-import styles from './style.module.css';
+import React from 'react';
+import Carousel from './Carousel';
 
 function Page() {
-  const [index, setIndex] = useState(1);
-  const listRef = useRef<HTMLUListElement>(null);
-
-  useEffect(() => {
-    scrollToIndex(index);
-  }, [index]);
-
-  const handlePrev = () => {
-    if (index > 0) setIndex((prevIndex) => (prevIndex -= 1));
-  };
-
-  const handleNext = () => {
-    if (index < 2) setIndex((prevIndex) => (prevIndex += 1));
-  };
-
-  function scrollToIndex(index: number) {
-    const listNode = listRef.current;
-    listNode?.scrollBy(0, listNode.clientWidth);
-    // This line assumes a particular DOM structure:\
-    if (listNode) {
-      const imgNode: HTMLLIElement = listNode.querySelectorAll('li')[index];
-      imgNode.scrollIntoView({
-        behavior: 'smooth',
-        block: 'nearest',
-        inline: 'center',
-      });
-    }
-  }
-
   return (
-    <div className="w-full">
-      <div>
-        <ul
-          className={`flex w-full overflow-x-scroll ${styles['scroll-container']}`}
-          ref={listRef}
-        >
-          <li
-            className={`relative scroll-item ${styles['scroll-item']}`}
-            style={{ minWidth: '100%' }}
-          >
-            <img src="/image1.jpg" alt="image 1" draggable={false} />
-          </li>
-          <li
-            className={`relative scroll-item ${styles['scroll-item']}`}
-            style={{ minWidth: '100%' }}
-          >
-            <img src="/image2.jpg" alt="image 1" draggable={false} />
-          </li>
-          <li
-            className={`relative scroll-item ${styles['scroll-item']}`}
-            style={{ minWidth: '100%' }}
-          >
-            <img src="/image3.jpg" alt="image 1" draggable={false} />
-          </li>
-        </ul>
-      </div>
-      <div className='flex justify-center'>
-        <button className="border-2 border-blue-500 px-4" onClick={handlePrev}>
-          Prev
-        </button>
-        <button className="border-2 border-blue-500 px-4" onClick={handleNext}>
-          Next
-        </button>
-      </div>
-    </div>
+    <Carousel className="md:w-3/5">
+      <img src="/image1.jpg" alt="image 1" draggable={false} />
+      <img src="/image2.jpg" alt="image 1" draggable={false} />
+      <img src="/image3.jpg" alt="image 1" draggable={false} />
+    </Carousel>
   );
 }
 export default Page;
