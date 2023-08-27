@@ -1,16 +1,14 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import styles from './style.module.css'
+import styles from './style.module.css';
 
 function Page() {
   const [index, setIndex] = useState(1);
   const listRef = useRef<HTMLUListElement>(null);
-  
 
   useEffect(() => {
     scrollToIndex(index);
-    
   }, [index]);
 
   const handlePrev = () => {
@@ -36,28 +34,37 @@ function Page() {
   }
 
   return (
-    <div className="border-2 ">
+    <div className="w-full">
       <div>
         <ul
-          className={`flex w-[500px] overflow-x-scroll ${styles['scroll-container']}`}
+          className={`flex w-full overflow-x-scroll ${styles['scroll-container']}`}
           ref={listRef}
         >
-          <li className={`relative scroll-item ${styles['scroll-item']}`} style={{ minWidth: '100%' }}>
-            <img src="/T-rex.jpg" alt="image 1" draggable={false} style={{objectFit:'cover'}} />
+          <li
+            className={`relative scroll-item ${styles['scroll-item']}`}
+            style={{ minWidth: '100%' }}
+          >
+            <img src="/image1.jpg" alt="image 1" draggable={false} />
           </li>
-          <li className={`relative scroll-item ${styles['scroll-item']}`} style={{ minWidth: '100%' }}>
-            <img src="/T-rex.jpg" alt="image 1" draggable={false} style={{objectFit:'cover'}} />
+          <li
+            className={`relative scroll-item ${styles['scroll-item']}`}
+            style={{ minWidth: '100%' }}
+          >
+            <img src="/image2.jpg" alt="image 1" draggable={false} />
           </li>
-          <li className={`relative scroll-item ${styles['scroll-item']}`} style={{ minWidth: '100%' }}>
-            <img src="/T-rex.jpg" alt="image 1" draggable={false} style={{objectFit:'cover'}} />
+          <li
+            className={`relative scroll-item ${styles['scroll-item']}`}
+            style={{ minWidth: '100%' }}
+          >
+            <img src="/image3.jpg" alt="image 1" draggable={false} />
           </li>
         </ul>
       </div>
-      <div>
-        <button className="border-2 border-blue-500 p-4" onClick={handlePrev}>
+      <div className='flex justify-center'>
+        <button className="border-2 border-blue-500 px-4" onClick={handlePrev}>
           Prev
         </button>
-        <button className="border-2 border-blue-500 p-4" onClick={handleNext}>
+        <button className="border-2 border-blue-500 px-4" onClick={handleNext}>
           Next
         </button>
       </div>
