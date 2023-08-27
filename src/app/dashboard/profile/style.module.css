@@ -1,0 +1,8 @@
+.first-node::after {
+  content: '';
+  position: absolute;
+  border: solid 2px rgb(182, 182, 255);
+  top: 50%;
+  left:100%;
+  width: var(--psuedo-width);
+}

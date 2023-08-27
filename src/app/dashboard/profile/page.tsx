@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Stepper from './stepper';
+import StepperContainer from './stepperContainer';
 
 function Page() {
   const [loadingProgress, setLoadingProgress] = useState(0);
@@ -30,12 +30,7 @@ function Page() {
           }}
         />
       </div>
-      <div className="border-2 border-green-500 w-4/5 flex justify-between my-12">
-        <Stepper index={1} title="Location" />
-        <Stepper index={2} title="Location" />
-        <Stepper index={3} title="Location" />
-        <Stepper index={4} title="Location" />
-      </div>
+      <StepperContainer />
     </div>
   );
 }
