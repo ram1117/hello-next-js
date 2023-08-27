@@ -13,7 +13,7 @@ const Carousel = ({
   className: string;
 }) => {
   const [index, setIndex] = useState(0);
-  const listRef = useRef<HTMLElement>(null);
+  const listRef = useRef<HTMLUListElement>(null);
   const isAtStart = index === 0;
   const isAtEnd = index === children.length - 1;
 
@@ -66,7 +66,7 @@ const Carousel = ({
         ref={listRef}
       >
         {children.map((child, index) => {
-          const itemRef = useRef(null);
+          const itemRef = useRef<HTMLLIElement>(null);
           useScrollPosition(itemRef, setIndexes, options);
           return (
             <li

@@ -1,9 +1,13 @@
 import { useEffect } from 'react';
 
 const useScrollPosition = (
-  observerRef: React.MutableRefObject<null>,
+  observerRef: HTMLLIElement,
   intersectCallback: Function,
-  options: { root: HTMLElement | null; rootMargin: string; threshold: number },
+  options: {
+    root: React.RefObject<HTMLLIElement>;
+    rootMargin: string;
+    threshold: number;
+  }
 ) => {
   const callbackFn = (entries: IntersectionObserverEntry[]) => {
     const [entry] = entries;
