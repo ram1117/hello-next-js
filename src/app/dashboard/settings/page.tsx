@@ -43,13 +43,13 @@ function Page() {
           ref={listRef}
         >
           <li className={`relative scroll-item ${styles['scroll-item']}`} style={{ minWidth: '100%' }}>
-            <img src="/buttongreen.jpg" alt="image 1" draggable={false} />
+            <img src="/T-rex.jpg" alt="image 1" draggable={false} style={{objectFit:'cover'}} />
           </li>
           <li className={`relative scroll-item ${styles['scroll-item']}`} style={{ minWidth: '100%' }}>
-            <img src="/dreams.jpg" alt="image 1" draggable={false} />
+            <img src="/T-rex.jpg" alt="image 1" draggable={false} style={{objectFit:'cover'}} />
           </li>
           <li className={`relative scroll-item ${styles['scroll-item']}`} style={{ minWidth: '100%' }}>
-            <img src="/buttongreen.jpg" alt="image 1" draggable={false} />
+            <img src="/T-rex.jpg" alt="image 1" draggable={false} style={{objectFit:'cover'}} />
           </li>
         </ul>
       </div>
