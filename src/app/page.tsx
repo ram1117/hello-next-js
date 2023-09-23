@@ -40,6 +40,7 @@ export default function Home() {
         <Link href="dashboard/profile/">Profile</Link>
         <Link href="agreement">Conditions</Link>
         <Link href="dashboard/settings/">Settings</Link>
+        <Link href="video">Video</Link>
       </div>
       <div className="w-full flex items-center justify-between m-5">
         <Link href="signup">Signup</Link>
